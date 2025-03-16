@@ -1,7 +1,7 @@
 let amigos = [];
 function agregarAmigo() {
     const inputAmigo = document.getElementById('amigo');
-    const nombreAmigo = inputAmigo.value.trim();
+    const nombreAmigo = inputAmigo.value.toUpperCase().trim();
     // validar que el campo no este vacio 
 
     if (nombreAmigo === "") {
