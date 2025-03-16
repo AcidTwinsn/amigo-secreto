@@ -22,7 +22,7 @@ function agregarAmigo() {
     amigos.push(nombreAmigo);
 
     //Limpiar el campo de entrada para que este vacio
-    inputAmigo.Value = "";
+    inputAmigo.value = "";
 
     //actualizar la lista en el HTML
     actualizarLista();
