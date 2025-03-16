@@ -2,9 +2,14 @@ let amigos = [];
 function agregarAmigo() {
     const inputAmigo = document.getElementById('amigo');
     const nombreAmigo = inputAmigo.value.trim();
-        // validar que el campo no este vacio 
+    // validar que el campo no este vacio 
+
     if (nombreAmigo === "") {
         alert("Por favor, inserte un nombre.");
+        return;
+    }
+    if (!validaNombre(nombreAmigo)) {
+        alert('Por favor, ingresa un nombre válido (solo letras y espacios).');
         return;
     }
     // validar que el nombre no este duplicado
@@ -13,35 +18,29 @@ function agregarAmigo() {
         return;
 
     }
-       //agregar el nombre a la lista 
-       amigos.push(nombreAmigo);
+    //agregar el nombre a la lista 
+    amigos.push(nombreAmigo);
 
-       //Limpiar el campo de entrada para que este vacio
-       inputAmigo.Value = "";
-   
-       //actualizar la lista en el HTML
-       actualizarLista();
-   
+    //Limpiar el campo de entrada para que este vacio
+    inputAmigo.Value = "";
+
+    //actualizar la lista en el HTML
+    actualizarLista();
+
 }
-function validaNombre(){
-    const regex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+function validaNombre(nombreAmigo) {
+    const regex = /^[A-Za-z ]{2,30}$/;
 
-    if (!regex.test(nombreAmigo)) {
-        alert('Por favor, ingresa un nombre válido (solo letras y espacios).');
-        return;
-    }
-
-    console.log('Nombre agregado:', nombreAmigo);
+    return (regex.test(nombreAmigo));
 
 }
 
-if(nombreAmigo == )
 
 function actualizarLista() {
     const listaAmigos = document.getElementById('listaAmigos');
 
     //Limpiar el contenido actual de la lista y borra cualquier contenido previo
-    listaAmigos.innerHTML = ""; 
+    listaAmigos.innerHTML = "";
 
     //Recorrer la lista con un ciclo for 
     for (let i = 0; i < amigos.length; i++) {
