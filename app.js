@@ -28,13 +28,23 @@ function agregarAmigo() {
 function actualizarLista() {
     const listaAmigos = document.getElementById('listaAmigos');
 
-    //Limpiar el contenido actual de la lista
-    listaAmigos.innerHTML = ""; //Borra cualquier contenido previo 
+    //Limpiar el contenido actual de la lista y borra cualquier contenido previo
+    listaAmigos.innerHTML = ""; 
 
     //Recorrer la lista con un ciclo for 
     for (let i = 0; i < amigos.length; i++) {
         const li = document.createElement('li');
         li.textContent = amigos[i];
         listaAmigos.appendChild(li);
+    }
+}
+
+function sortearAmigo() {
+    // validar que haya amigos disponibles 
+    if (amigos.length === 0) { // comprueba si la lista esta vacia
+        alert("No hay amigos disponibles para sortear. Agrega al menos unos.");
+        return;
+
+
     }
 }
