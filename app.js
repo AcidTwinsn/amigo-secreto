@@ -40,11 +40,21 @@ function actualizarLista() {
 }
 
 function sortearAmigo() {
+
     // validar que haya amigos disponibles 
     if (amigos.length === 0) { // comprueba si la lista esta vacia
         alert("No hay amigos disponibles para sortear. Agrega al menos unos.");
         return;
+        //genera un indice aleatorio 
+        const indiceAleatorio = Math.floor(Math.random() * amigos.length);
 
+        //obtener el nombre sorteado
+        const amigoSorteado = amigos[indiceAleatorio];
 
+        //Mostrar el resultado en el HTML
+        const resultado = document.getElementById('resultado');
+        resultado.innerHTML = `Amigo sorteado: <strong>${amigoSorteado}</strong>`;
     }
+
+
 }
