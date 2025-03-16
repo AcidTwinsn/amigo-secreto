@@ -29,7 +29,7 @@ function agregarAmigo() {
 
 }
 function validaNombre(nombreAmigo) {
-    const regex = /^[A-Za-z ]{2,30}$/;
+    const regex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{2,30}$/;
 
     return (regex.test(nombreAmigo));
 
@@ -51,21 +51,18 @@ function actualizarLista() {
 }
 
 function sortearAmigo() {
-
     // validar que haya amigos disponibles 
-    if (amigos.length === 0) { // comprueba si la lista esta vacia
-        alert("No hay amigos disponibles para sortear. Agrega al menos unos.");
+    if (amigos.length <= 1) { // comprueba si la lista esta vacia
+        alert("No hay amigos disponibles para sortear. Agrega al menos dos.");
         return;
-        //genera un indice aleatorio 
-        const indiceAleatorio = Math.floor(Math.random() * amigos.length);
-
-        //obtener el nombre sorteado
-        const amigoSorteado = amigos[indiceAleatorio];
-
-        //Mostrar el resultado en el HTML
-        const resultado = document.getElementById('resultado');
-        resultado.innerHTML = `Amigo sorteado: <strong>${amigoSorteado}</strong>`;
     }
+    //genera un indice aleatorio 
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
 
+    //obtener el nombre sorteado
+    const amigoSorteado = amigos[indiceAleatorio];
 
+    //Mostrar el resultado en el HTML
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `Amigo sorteado: <strong>${amigoSorteado}</strong>`;
 }
